@@ -39,7 +39,14 @@ export class FullComponent {
       this.calValue = 0;
       this.calNumber = 'noValue';
       this.currentFunction = val;
+    }else if (this.currentFunction != 'NoFunction'){
+      this.secondNumber = this.calValue;
+      this.valueCalculate(val);
     }
+  }
+
+  valueCalculate(val: string){
+
   }
 
 }
