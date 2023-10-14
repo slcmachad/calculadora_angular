@@ -34,12 +34,15 @@ export class FullComponent {
   }
 
   onFunctionClick(val: string){
-    if(this.currentFunction == 'NoFunction'){
+
+    if(val == 'C'){
+      this.clearAll();
+    } else if(this.currentFunction == 'NoFunction'){
       this.firstNumber = this.calValue;
       this.calValue = 0;
       this.calNumber = 'noValue';
       this.currentFunction = val;
-    }else if (this.currentFunction != 'NoFunction'){
+    } else if (this.currentFunction != 'NoFunction'){
       this.secondNumber = this.calValue;
       this.valueCalculate(val);
     }
@@ -47,6 +50,52 @@ export class FullComponent {
 
   valueCalculate(val: string){
 
+    if(this.currentFunction == '+'){
+      const total = this.firstNumber + this.secondNumber;
+      this.totalAssignValues(total, val);
+    }
+    if(this.currentFunction == '-'){
+      const total = this.firstNumber - this.secondNumber;
+      this.totalAssignValues(total, val);
+    }
+    if(this.currentFunction == '*'){
+      const total = this.firstNumber * this.secondNumber;
+      this.totalAssignValues(total, val);
+    }
+    if(this.currentFunction == '/'){
+      const total = this.firstNumber / this.secondNumber;
+      this.totalAssignValues(total, val);
+    }
+    if(this.currentFunction == '%'){
+      const total = this.firstNumber % this.secondNumber;
+      this.totalAssignValues(total, val);
+    }
+  }
+
+  totalAssignValues(total: number, val: string){
+      this.calValue = total;
+      this.firstNumber = total;
+      this.secondNumber = 0;
+      this.calNumber = 'noValue';
+      this.currentFunction = val;
+      if(val == '='){
+        this.onEqualPress()
+      }
+  }
+
+  onEqualPress(){
+    this.firstNumber = 0;
+    this.secondNumber = 0;
+    this.currentFunction = 'NoFunction';
+    this.calNumber = 'noValue';
+  }
+
+  clearAll(){
+    this.firstNumber = 0;
+    this.secondNumber = 0;
+    this.calValue = 0;
+    this.currentFunction = 'NoFunction';
+    this.calNumber = 'noValue';
   }
 
 }
