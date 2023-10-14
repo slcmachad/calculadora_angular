@@ -34,15 +34,16 @@
         text-right">
 
         <!-- tela de funçoes -->
-        <app-functions></app-functions>
+        <app-functions [currentFunction]="currentFunction"></app-functions>
 
         <!-- Tela de numeros -->
 
-        <app-numbers></app-numbers>
+        <app-numbers [calValue]="calValue"></app-numbers>
 
         <!-- tela das operaçoes -->
 
-        <app-operacoes></app-operacoes>
+        <app-operacoes (buttonClicked)="onClickButton($event)">
+        </app-operacoes>
 
       </div>
 

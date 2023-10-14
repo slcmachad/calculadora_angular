@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-numbers',
@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./numbers.component.css']
 })
 export class NumbersComponent {
+
+  @Input() calValue: number = 0;
 
 }

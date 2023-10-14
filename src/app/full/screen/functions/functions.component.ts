@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-functions',
@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./functions.component.css']
 })
 export class FunctionsComponent {
+
+  @Input() currentFunction: string = '';
 
 }
